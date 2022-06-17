@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { ModalComponent } from 'src/modal/modal.component';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'anuglar_client';
+  title = 'Angular Eğitim Projesi';
+
+  constructor (private router : Router, private dialogRef: MatDialog){}
+
+  openDailog() {
+    this.dialogRef.open(ModalComponent)
+  }
+
 }
