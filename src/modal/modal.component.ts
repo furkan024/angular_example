@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,10 +11,22 @@ export class ModalComponent implements OnInit {
 
   constructor(private router: Router) { }
 
-  
+  formGroup: any = new FormGroup({
+    inputDeneme: new FormControl('')
+  })
+
+
+
+  deneme: any;
 
 
   ngOnInit() {
   }
+
+  clickDialog() {
+    debugger;
+    console.log(this.formGroup.value.inputDeneme)
+  }
+
 
 }

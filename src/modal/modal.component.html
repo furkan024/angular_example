@@ -1,11 +1,11 @@
-<form>
+<form [formGroup]="formGroup">
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-6 col-lg-6">
         <div class="row">
           <mat-form-field appearance="fill">
             <mat-label>Input</mat-label>
-            <input matInput>
+            <input formControlName="inputDeneme" matInput>
           </mat-form-field>
         </div>
       </div>
@@ -42,10 +42,10 @@
   </div>
   <div class="row">
     <div style="float: right">
-      <button class="btn btn-success">
+      <button (click)="clickDialog()" class="btn btn-success">
         Gönder
       </button>
-      <button class="btn btn-warning">
+      <button class="btn btn-danger">
         Vazgeç
       </button>
     </div>
