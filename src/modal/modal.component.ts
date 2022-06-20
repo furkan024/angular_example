@@ -33,6 +33,7 @@ export class ModalComponent implements OnInit {
     // console.log(this.formGroup.value.inputDeneme)
     //İsfendiyarCommitDeneme
     //BarışDeneme
+    //ömer deneme
 
     for (let index = 0; index < 5; index++) {
       if (index == 3){
