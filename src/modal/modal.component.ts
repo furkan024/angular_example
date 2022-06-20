@@ -26,6 +26,7 @@ export class ModalComponent implements OnInit {
   clickDialog() {
     debugger;
     // console.log(this.formGroup.value.inputDeneme)
+    //İsfendiyarCommitDeneme
 
     for (let index = 0; index < 5; index++) {
       if (index == 3){
