@@ -1,6 +1,11 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
+
+
+
+
 
 @Component({
   selector: 'app-modal',
@@ -9,7 +14,7 @@ import { Router } from '@angular/router';
 })
 export class ModalComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router, private toastr: ToastrService) { }
 
   formGroup: any = new FormGroup({
     inputDeneme: new FormControl('')
@@ -30,11 +35,11 @@ export class ModalComponent implements OnInit {
 
     for (let index = 0; index < 5; index++) {
       if (index == 3){
-        console.log(this.formGroup.value.inputDeneme, index);
+        this.toastr.success(this.formGroup.value.inputDeneme);
         break;
       }
       else{
-        console.log('Index is not "3"', index);
+        this.toastr.error('Index is not "3"');
       }
     }
   }

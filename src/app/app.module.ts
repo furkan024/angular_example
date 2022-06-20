@@ -11,6 +11,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ModalComponent } from 'src/modal/modal.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { ReactiveFormsModule } from '@angular/forms';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [			
@@ -27,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSelectModule,
     MatDialogModule,
     ReactiveFormsModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
