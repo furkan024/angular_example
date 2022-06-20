@@ -25,7 +25,17 @@ export class ModalComponent implements OnInit {
 
   clickDialog() {
     debugger;
-    console.log(this.formGroup.value.inputDeneme)
+    // console.log(this.formGroup.value.inputDeneme)
+
+    for (let index = 0; index < 5; index++) {
+      if (index == 3){
+        console.log(this.formGroup.value.inputDeneme, index);
+        break;
+      }
+      else{
+        console.log('Index is not "3"', index);
+      }
+    }
   }
 
 
