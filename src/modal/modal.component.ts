@@ -29,7 +29,7 @@ export class ModalComponent implements OnInit {
   }
 
   clickDialog() {
-    debugger;
+
     // console.log(this.formGroup.value.inputDeneme)
     //İsfendiyarCommitDeneme
     //BarışDeneme
@@ -45,16 +45,28 @@ export class ModalComponent implements OnInit {
     // }
 
     // let temparraylenght=temparray.length;
-
+    let tempfinal="";
     for (let index = 0; index < temparray.length; index++) {
-      if (index == 3){
-        this.toastr.success(this.formGroup.value.inputDeneme);
-        break;
-      }
-      else{
-        this.toastr.error('Index is not "3"');
-      }
+        //console.log(temparray[index]);
+
+        temparray[index]= temparray[index]+"-";
+        // console.log(temparray[index]);
+        // tempfinal = tempfinal + temparray[index];
+        tempfinal+=temparray[index];
+        console.log(tempfinal);
+      // if (index == 3){
+      //   this.toastr.success(this.formGroup.value.inputDeneme);
+      //   break;
+      // }
+      // else{
+      //   this.toastr.error('Index is not "3"');
+      // }
     }
+    console.log(tempfinal);
+    debugger;
+    //tempfinal = tempfinal.replace("-","");
+    tempfinal = tempfinal.slice(2, -2);
+    console.log(tempfinal);
   }
 
 
