@@ -33,9 +33,22 @@ export class ModalComponent implements OnInit {
     // console.log(this.formGroup.value.inputDeneme)
     //İsfendiyarCommitDeneme
     //BarışDeneme
+<<<<<<< Updated upstream
     //ömer deneme
+=======
+    // t,e,s,t
+    let temparray = this.formGroup.value.inputDeneme.split("");
+>>>>>>> Stashed changes
 
-    for (let index = 0; index < 5; index++) {
+    // for (let templine of temparray)
+    // {
+    //   console.log(templine);
+
+    // }
+
+    // let temparraylenght=temparray.length;
+
+    for (let index = 0; index < temparray.length; index++) {
       if (index == 3){
         this.toastr.success(this.formGroup.value.inputDeneme);
         break;
