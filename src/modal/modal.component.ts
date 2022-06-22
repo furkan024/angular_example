@@ -30,6 +30,7 @@ export class ModalComponent implements OnInit {
   }
 
   clickDialog(){
+    //denemedeniz
     debugger;
     let temparray = this.formGroup.value.inputDeneme.split("");
     let temparray2 = this.formGroup.value.inputDeneme2.split("");
