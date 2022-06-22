@@ -1,7 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { AppComponent } from 'src/app/app.component';
 
 
 
@@ -14,7 +16,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class ModalComponent implements OnInit {
 
-  constructor(private router: Router, private toastr: ToastrService) { }
+  constructor(private router: Router, private toastr: ToastrService,private dialogRef: MatDialog) { }
 
   formGroup: any = new FormGroup({
     inputDeneme: new FormControl(''),
@@ -28,7 +30,9 @@ export class ModalComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  closedDialog() {
+    this.dialogRef.closeAll()
+  }
   clickDialog(){
     //denemedeniz
     debugger;
