@@ -17,7 +17,8 @@ export class ModalComponent implements OnInit {
   constructor(private router: Router, private toastr: ToastrService) { }
 
   formGroup: any = new FormGroup({
-    inputDeneme: new FormControl('')
+    inputDeneme: new FormControl(''),
+    inputDeneme2: new FormControl('')
   })
 
 
@@ -29,6 +30,7 @@ export class ModalComponent implements OnInit {
   }
 
   clickDialog() {
+    debugger;
 
     // console.log(this.formGroup.value.inputDeneme)
     //İsfendiyarCommitDeneme
@@ -65,9 +67,10 @@ export class ModalComponent implements OnInit {
     console.log(tempfinal);
     debugger;
     //tempfinal = tempfinal.replace("-","");
-    tempfinal = tempfinal.slice(2, -2);
+    tempfinal = tempfinal.slice(0, -1);
     console.log(tempfinal);
   }
+  
 
 
 }
