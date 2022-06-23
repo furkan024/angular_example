@@ -26,7 +26,10 @@ export class ModalComponent implements OnInit {
      private toastr: ToastrService,
      private dialogRef: MatDialog,
      private _formBuilder: FormBuilder,
-     ) {this.studentinfo = new students()}
+     ) 
+    {
+      this.studentinfo = new students()
+    }
 
   formGroup: any = new FormGroup({
     name: new FormControl(''),
@@ -36,6 +39,78 @@ export class ModalComponent implements OnInit {
     birthdate: new FormControl('')
   })
 
+  studentList :  students[] | any= [
+    {
+      name: 'Furkan',
+      surname: 'Zingal',
+      number : 1,
+      gender: 'Male',
+      birthdate: '05.04.1996'
+    },
+    {
+      name: 'asdas',
+      surname: 'asd',
+      number : 2,
+      gender: 'Male',
+      birthdate: '01.01.2000'
+    },
+    {
+      name: 'asdasd',
+      surname: 'asdasd',
+      number : 3,
+      gender: 'Female',
+      birthdate: '01.01.2000'
+    },
+    {
+      name: 'fasdfas',
+      surname: 'afasasf',
+      number : 4,
+      gender: 'Male',
+      birthdate: '01.01.2000'
+    },
+    {
+      name: 'asgagf',
+      surname: 'adsfasdf',
+      number : 5,
+      gender: 'Female',
+      birthdate: '01.01.2000'
+    },
+    {
+      name: 'asgagf',
+      surname: 'adsfasdf',
+      number : 6,
+      gender: 'Female',
+      birthdate: '01.01.2000'
+    },
+    {
+      name: 'asdfasdf',
+      surname: 'adsfasdf',
+      number : 7,
+      gender: 'Male',
+      birthdate: '01.01.2000'
+    },
+    {
+      name: 'asdfasdf',
+      surname: 'adsfasdf',
+      number : 8,
+      gender: 'Female',
+      birthdate: '01.01.2000'
+    },
+    {
+      name: 'asgagf',
+      surname: 'adsfasdf',
+      number : 9,
+      gender: 'Male',
+      birthdate: '01.01.2000'
+    },
+    {
+      name: 'asdadsa',
+      surname: 'asdasd',
+      number : 10,
+      gender: 'Female',
+      birthdate: '01.01.2000'
+    }
+  ]
 
 
 
@@ -43,7 +118,6 @@ export class ModalComponent implements OnInit {
 
 
   ngOnInit() {
-    console.log(this.formGroup.value.name);
   }
   closedDialog() {
     this.dialogRef.closeAll()
@@ -56,7 +130,7 @@ export class ModalComponent implements OnInit {
     //     this.privateStudents.push(this.allstudents[i]);
     //   }
     // }
-    this.privateStudents = this.allstudents.filter(s => s.gender === "male");
+    this.privateStudents = this.studentList.filter((s: { gender: string; }) => s.gender === "Male");
     console.log(this.privateStudents);
   }
   clickDialog(){
