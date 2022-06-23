@@ -4,8 +4,8 @@
       <div class="col-md-6 col-lg-6">
         <div class="row">
           <mat-form-field appearance="fill">
-            <mat-label>Input</mat-label>
-            <input formControlName="inputDeneme" matInput>
+            <mat-label>Name</mat-label>
+            <input formControlName="name" matInput>
           </mat-form-field>
         </div>
       </div>
@@ -13,27 +13,32 @@
         <div class="col-md-2 col-lg-2">
           <div class="row">
             <mat-form-field appearance="fill">
-              <mat-label>Select</mat-label>
-              <mat-select>
-                <mat-option value="one">First option</mat-option>
-                <mat-option value="two">Second option</mat-option>
-              </mat-select>
+              <mat-label>Surname</mat-label>
+              <input matInput formControlName="surname">
             </mat-form-field>
           </div>
         </div>
         <div class="col-md-2 col-lg-2">
           <div class="row">
             <mat-form-field appearance="fill">
-              <mat-label>Input</mat-label>
-              <input matInput formControlName="inputDeneme2">
+              <mat-label>Number</mat-label>
+              <input matInput formControlName="number">
             </mat-form-field>
           </div>
         </div>
         <div class="col-md-2 col-lg-2">
           <div class="row">
             <mat-form-field appearance="fill">
-              <mat-label>Input</mat-label>
-              <input matInput>
+              <mat-label>Gender</mat-label>
+              <input matInput formControlName = "gender">
+            </mat-form-field>
+          </div>
+        </div>
+        <div class="col-md-2 col-lg-2">
+          <div class="row">
+            <mat-form-field appearance="fill">
+              <mat-label>Birthdate</mat-label>
+              <input matInput formControlName = "birthdate">
             </mat-form-field>
           </div>
         </div>
@@ -47,6 +52,9 @@
       </button>
       <button (click)="closedDialog()" class="btn btn-danger">
         Vazgeç
+      </button>
+      <button (click)="executeDialog()" class="btn btn-primary">
+        Veriyi İşle
       </button>
     </div>
   </div>

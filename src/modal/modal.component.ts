@@ -1,9 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppComponent } from 'src/app/app.component';
+import { students } from 'src/inputTest/models/students';
 
 
 
@@ -15,13 +16,26 @@ import { AppComponent } from 'src/app/app.component';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
+    studentinfo : students | any;
+    // studentForm : FormGroup;
+    allstudents : students[] = [];
+    privateStudents : students[] = [];
 
-  constructor(private router: Router, private toastr: ToastrService,private dialogRef: MatDialog) { }
+  constructor(
+    private router: Router,
+     private toastr: ToastrService,
+     private dialogRef: MatDialog,
+     private _formBuilder: FormBuilder,
+     ) {this.studentinfo = new students()}
 
   formGroup: any = new FormGroup({
-    inputDeneme: new FormControl(''),
-    inputDeneme2: new FormControl('')
+    name: new FormControl(''),
+    surname: new FormControl(''),
+    number: new FormControl(''),
+    gender: new FormControl(''),
+    birthdate: new FormControl('')
   })
+
 
 
 
@@ -29,25 +43,38 @@ export class ModalComponent implements OnInit {
 
 
   ngOnInit() {
+    console.log(this.formGroup.value.name);
   }
   closedDialog() {
     this.dialogRef.closeAll()
   }
+  executeDialog()
+  {
+    debugger;
+    
+  }
   clickDialog(){
     //denemedeniz
     debugger;
-    let temparray = this.formGroup.value.inputDeneme.split("");
-    let temparray2 = this.formGroup.value.inputDeneme2.split("");
+     this.studentinfo.name = this.formGroup.value.name;
+     this.studentinfo.surname = this.formGroup.value.surname;
+     this.studentinfo.number = this.formGroup.value.number;
+     this.studentinfo.gender = this.formGroup.value.gender;
+     this.studentinfo.birthdate = this.formGroup.value.birthdate;
 
-    let str = '';
-    for (let i = 0; i < Math.max(temparray.length, temparray2.length); i++) {
-      if (temparray[i] != undefined) {
-        str += temparray[i];
-      }
-      if (temparray2[i] != undefined) {
-        str += temparray2[i];
-      }
-    }
+     this.allstudents.push(this.studentinfo);
+     this.studentinfo = new students();
+     console.log(this.studentinfo);
+
+    // let str = '';
+    // for (let i = 0; i < Math.max(temparray.length, temparray2.length); i++) {
+    //   if (temparray[i] != undefined) {
+    //     str += temparray[i];
+    //   }
+    //   if (temparray2[i] != undefined) {
+    //     str += temparray2[i];
+    //   }
+    // }
 
 
     // for (let index = 0; index < temparray.length; index++) {
