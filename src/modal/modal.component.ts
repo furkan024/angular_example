@@ -51,7 +51,13 @@ export class ModalComponent implements OnInit {
   executeDialog()
   {
     debugger;
-    
+    // for (let i = 0; i < this.allstudents.length; i++){
+    //   if (this.allstudents[i].gender == 'male'){
+    //     this.privateStudents.push(this.allstudents[i]);
+    //   }
+    // }
+    this.privateStudents = this.allstudents.filter(s => s.gender === "male");
+    console.log(this.privateStudents);
   }
   clickDialog(){
     //denemedeniz
