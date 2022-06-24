@@ -19,7 +19,7 @@ export class ModalComponent implements OnInit {
     studentinfo : students | any;
     // studentForm : FormGroup;
     allstudents : students[] = [];
-    privateStudents : students[] = [];
+    // privateStudents : students | any;
 
   constructor(
     private router: Router,
@@ -38,6 +38,17 @@ export class ModalComponent implements OnInit {
     gender: new FormControl(''),
     birthdate: new FormControl('')
   })
+
+  privateStudents : students[] = [
+    {
+      name: 'İsfendiyar',
+      surname: 'Akpınar',
+      number : 1,
+      gender: 'Male',
+      birthdate: '01.01.1965'
+    }
+
+  ];
 
   studentList :  students[] | any= [
     {
@@ -130,7 +141,9 @@ export class ModalComponent implements OnInit {
     //     this.privateStudents.push(this.allstudents[i]);
     //   }
     // }
-    this.privateStudents = this.studentList.filter((s: { gender: string; }) => s.gender === "Male");
+    //this.privateStudents = this.studentList.filter((s: { gender: string; }) => s.gender === "Male");
+    // this.privateStudents = this.studentList.filter((s: { name: string; }) => s.name === "Furkan");
+    var testConcat = this.privateStudents.concat(this.studentList);
     console.log(this.privateStudents);
   }
   clickDialog(){
