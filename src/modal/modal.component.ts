@@ -26,7 +26,7 @@ export class ModalComponent implements OnInit {
      private toastr: ToastrService,
      private dialogRef: MatDialog,
      private _formBuilder: FormBuilder,
-     ) 
+     )
     {
       this.studentinfo = new students()
     }
@@ -48,67 +48,67 @@ export class ModalComponent implements OnInit {
       birthdate: '05.04.1996'
     },
     {
-      name: 'asdas',
-      surname: 'asd',
+      name: 'John',
+      surname: 'Hopkins',
       number : 2,
       gender: 'Male',
-      birthdate: '01.01.2000'
+      birthdate: '01.01.1985'
     },
     {
-      name: 'asdasd',
-      surname: 'asdasd',
+      name: 'Marina',
+      surname: 'Kisel',
       number : 3,
       gender: 'Female',
-      birthdate: '01.01.2000'
+      birthdate: '01.01.1995'
     },
     {
-      name: 'fasdfas',
-      surname: 'afasasf',
+      name: 'Jack',
+      surname: 'Daniels',
       number : 4,
       gender: 'Male',
-      birthdate: '01.01.2000'
+      birthdate: '01.01.1956'
     },
     {
-      name: 'asgagf',
-      surname: 'adsfasdf',
+      name: 'Maria',
+      surname: 'Sandos',
       number : 5,
       gender: 'Female',
-      birthdate: '01.01.2000'
+      birthdate: '01.01.1980'
     },
     {
-      name: 'asgagf',
-      surname: 'adsfasdf',
+      name: 'Eva',
+      surname: 'Hertzigova',
       number : 6,
       gender: 'Female',
-      birthdate: '01.01.2000'
+      birthdate: '01.01.1975'
     },
     {
-      name: 'asdfasdf',
-      surname: 'adsfasdf',
+      name: 'Pablo',
+      surname: 'Escobar',
       number : 7,
       gender: 'Male',
-      birthdate: '01.01.2000'
+      birthdate: '01.01.1962'
     },
     {
-      name: 'asdfasdf',
-      surname: 'adsfasdf',
+      name: 'Eleni',
+      surname: 'Koftiyan',
       number : 8,
       gender: 'Female',
-      birthdate: '01.01.2000'
+      birthdate: '01.01.2007'
     },
     {
-      name: 'asgagf',
-      surname: 'adsfasdf',
+      name: 'Gregory',
+      surname: 'Chevchenko',
       number : 9,
       gender: 'Male',
-      birthdate: '01.01.2000'
+      birthdate: '01.01.1987'
     },
     {
-      name: 'asdadsa',
-      surname: 'asdasd',
+      name: 'Edda',
+      surname: 'Pelesenkova',
       number : 10,
       gender: 'Female',
-      birthdate: '01.01.2000'
+      birthdate: '01.01.1985'
     }
   ]
 
