@@ -133,9 +133,27 @@ export class ModalComponent implements OnInit {
   closedDialog() {
     this.dialogRef.closeAll()
   }
+
   executeDialog()
   {
     debugger;
+    // let num = [7, 8, 9];
+    // num.forEach(function (value) {
+    //   console.log(value);
+    // });
+
+    // for (let i = 0; i < this.studentList.length; i++){
+    //   console.log(this.studentList[i].name+" "+this.studentList[i].surname);
+    // }
+
+    this.studentList.forEach(function (value:students) {
+      if(value.gender==="Female" && value.birthdate>"01.01.2000")
+      {
+        console.log(value.name+" "+value.surname);
+      }
+    });
+
+
     // for (let i = 0; i < this.allstudents.length; i++){
     //   if (this.allstudents[i].gender == 'male'){
     //     this.privateStudents.push(this.allstudents[i]);
@@ -143,7 +161,7 @@ export class ModalComponent implements OnInit {
     // }
     //this.privateStudents = this.studentList.filter((s: { gender: string; }) => s.gender === "Male");
     // this.privateStudents = this.studentList.filter((s: { name: string; }) => s.name === "Furkan");
-    var testConcat = this.privateStudents.concat(this.studentList);
+    //var testConcat = this.privateStudents.concat(this.studentList);
     console.log(this.privateStudents);
   }
   clickDialog(){
