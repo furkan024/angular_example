@@ -137,6 +137,10 @@ export class ModalComponent implements OnInit {
   executeDialog()
   {
     debugger;
+    // console.log(new Date().getTime());
+    // console.log(new Date().getFullYear());
+    // console.log(new Date().getMonth());
+    // console.log(new Date().getTime());
     // let num = [7, 8, 9];
     // num.forEach(function (value) {
     //   console.log(value);
@@ -147,7 +151,12 @@ export class ModalComponent implements OnInit {
     // }
 
     this.studentList.forEach(function (value:students) {
-      if(value.gender==="Female" && value.birthdate>"01.01.2000")
+      //if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
+      // const [month, day, year] = value.birthdate.split('.');
+      // if(year > 2000){
+      //   console.log(value.name + " " + value.surname);
+      // }
+      if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
       {
         console.log(value.name+" "+value.surname);
       }
@@ -162,7 +171,7 @@ export class ModalComponent implements OnInit {
     //this.privateStudents = this.studentList.filter((s: { gender: string; }) => s.gender === "Male");
     // this.privateStudents = this.studentList.filter((s: { name: string; }) => s.name === "Furkan");
     //var testConcat = this.privateStudents.concat(this.studentList);
-    console.log(this.privateStudents);
+    //console.log(this.privateStudents);
   }
   clickDialog(){
     //denemedeniz
