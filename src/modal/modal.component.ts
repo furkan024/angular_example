@@ -16,20 +16,19 @@ import { students } from 'src/inputTest/models/students';
   styleUrls: ['./modal.component.scss']
 })
 export class ModalComponent implements OnInit {
-    studentinfo : students | any;
-    // studentForm : FormGroup;
-    allstudents : students[] = [];
-    // privateStudents : students | any;
+  studentinfo: students | any;
+  // studentForm : FormGroup;
+  allstudents: students[] = [];
+  // privateStudents : students | any;
 
   constructor(
     private router: Router,
-     private toastr: ToastrService,
-     private dialogRef: MatDialog,
-     private _formBuilder: FormBuilder,
-     )
-    {
-      this.studentinfo = new students()
-    }
+    private toastr: ToastrService,
+    private dialogRef: MatDialog,
+    private _formBuilder: FormBuilder,
+  ) {
+    this.studentinfo = new students()
+  }
 
   formGroup: any = new FormGroup({
     name: new FormControl(''),
@@ -39,85 +38,85 @@ export class ModalComponent implements OnInit {
     birthdate: new FormControl('')
   })
 
-  privateStudents : students[] = [
+  privateStudents: students[] = [
     {
       name: 'İsfendiyar',
       surname: 'Akpınar',
-      number : 1,
+      number: 1,
       gender: 'Male',
       birthdate: '01.01.1965'
     }
 
   ];
 
-  studentList :  students[] | any= [
+  studentList: students[] | any = [
     {
       name: 'Furkan',
       surname: 'Zingal',
-      number : 1,
+      number: 1,
       gender: 'Male',
       birthdate: '05.04.1996'
     },
     {
       name: 'John',
       surname: 'Hopkins',
-      number : 2,
+      number: 2,
       gender: 'Male',
       birthdate: '01.01.1985'
     },
     {
       name: 'Marina',
       surname: 'Kisel',
-      number : 3,
+      number: 3,
       gender: 'Female',
       birthdate: '01.01.1995'
     },
     {
       name: 'Jack',
       surname: 'Daniels',
-      number : 4,
+      number: 4,
       gender: 'Male',
       birthdate: '01.01.1956'
     },
     {
       name: 'Maria',
       surname: 'Sandos',
-      number : 5,
+      number: 5,
       gender: 'Female',
       birthdate: '01.01.1980'
     },
     {
       name: 'Eva',
       surname: 'Hertzigova',
-      number : 6,
+      number: 6,
       gender: 'Female',
       birthdate: '01.01.1975'
     },
     {
       name: 'Pablo',
       surname: 'Escobar',
-      number : 7,
+      number: 7,
       gender: 'Male',
       birthdate: '01.01.1962'
     },
     {
       name: 'Eleni',
       surname: 'Koftiyan',
-      number : 8,
+      number: 8,
       gender: 'Female',
       birthdate: '01.01.2007'
     },
     {
       name: 'Gregory',
       surname: 'Chevchenko',
-      number : 9,
+      number: 9,
       gender: 'Male',
       birthdate: '01.01.1987'
     },
     {
       name: 'Edda',
       surname: 'Pelesenkova',
-      number : 10,
+      number: 10,
       gender: 'Female',
       birthdate: '01.01.1985'
     }
@@ -133,58 +132,87 @@ export class ModalComponent implements OnInit {
   closedDialog() {
     this.dialogRef.closeAll()
   }
-
-  executeDialog()
-  {
+  executeDialog() {
     debugger;
-    // console.log(new Date().getTime());
-    // console.log(new Date().getFullYear());
-    // console.log(new Date().getMonth());
-    // console.log(new Date().getTime());
-    // let num = [7, 8, 9];
-    // num.forEach(function (value) {
-    //   console.log(value);
-    // });
 
-    // for (let i = 0; i < this.studentList.length; i++){
-    //   console.log(this.studentList[i].name+" "+this.studentList[i].surname);
-    // }
+    function isBigEnough(element: number) {
+      return (element >= 4);
+    }
+    var passed = [12, 5, 8, 130, 44].every(isBigEnough);
+    console.log("Test Value 01 : " + passed);
 
-    this.studentList.forEach(function (value:students) {
-      //if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
-      // const [month, day, year] = value.birthdate.split('.');
-      // if(year > 2000){
-      //   console.log(value.name + " " + value.surname);
-      // }
-      if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
-      {
-        console.log(value.name+" "+value.surname);
-      }
+    //--//-->
+
+    passed = [12, 5, 8, 130, 44].every((value:number)=>
+    {
+      return (value >= 10);
     });
+    console.log("Test Value 02 : " + passed);
 
+    //--//-->
 
-    // for (let i = 0; i < this.allstudents.length; i++){
-    //   if (this.allstudents[i].gender == 'male'){
-    //     this.privateStudents.push(this.allstudents[i]);
-    //   }
-    // }
-    //this.privateStudents = this.studentList.filter((s: { gender: string; }) => s.gender === "Male");
-    // this.privateStudents = this.studentList.filter((s: { name: string; }) => s.name === "Furkan");
-    //var testConcat = this.privateStudents.concat(this.studentList);
-    //console.log(this.privateStudents);
+    passed = this.studentList.every((value:students)=>
+    {
+      //return (new Date(value.birthdate).getFullYear()>2000);
+      return (new Date(value.birthdate).getFullYear()>1955);
+    });
+    console.log("Test Value 03 : " + passed);
+
   }
-  clickDialog(){
+
+  // executeDialog()
+  // {
+  //   debugger;
+  //   // console.log(new Date().getTime());
+  //   // console.log(new Date().getFullYear());
+  //   // console.log(new Date().getMonth());
+  //   // console.log(new Date().getTime());
+  //   // let num = [7, 8, 9];
+  //   // num.forEach(function (value) {
+  //   //   console.log(value);
+  //   // });
+
+  //   // for (let i = 0; i < this.studentList.length; i++){
+  //   //   console.log(this.studentList[i].name+" "+this.studentList[i].surname);
+  //   // }
+
+  //   this.studentList.forEach(function (value:students) {
+  //     //if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
+  //     // const [month, day, year] = value.birthdate.split('.');
+  //     // if(year > 2000){
+  //     //   console.log(value.name + " " + value.surname);
+  //     // }
+  //     if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
+  //     {
+  //       console.log(value.name+" "+value.surname);
+  //     }
+  //   });
+
+
+  //   // for (let i = 0; i < this.allstudents.length; i++){
+  //   //   if (this.allstudents[i].gender == 'male'){
+  //   //     this.privateStudents.push(this.allstudents[i]);
+  //   //   }
+  //   // }
+  //   //this.privateStudents = this.studentList.filter((s: { gender: string; }) => s.gender === "Male");
+  //   // this.privateStudents = this.studentList.filter((s: { name: string; }) => s.name === "Furkan");
+  //   //var testConcat = this.privateStudents.concat(this.studentList);
+  //   //console.log(this.privateStudents);
+  // }
+
+
+  clickDialog() {
     //denemedeniz
     debugger;
-     this.studentinfo.name = this.formGroup.value.name;
-     this.studentinfo.surname = this.formGroup.value.surname;
-     this.studentinfo.number = this.formGroup.value.number;
-     this.studentinfo.gender = this.formGroup.value.gender;
-     this.studentinfo.birthdate = this.formGroup.value.birthdate;
+    this.studentinfo.name = this.formGroup.value.name;
+    this.studentinfo.surname = this.formGroup.value.surname;
+    this.studentinfo.number = this.formGroup.value.number;
+    this.studentinfo.gender = this.formGroup.value.gender;
+    this.studentinfo.birthdate = this.formGroup.value.birthdate;
 
-     this.allstudents.push(this.studentinfo);
-     this.studentinfo = new students();
-     console.log(this.studentinfo);
+    this.allstudents.push(this.studentinfo);
+    this.studentinfo = new students();
+    console.log(this.studentinfo);
 
     // let str = '';
     // for (let i = 0; i < Math.max(temparray.length, temparray2.length); i++) {
