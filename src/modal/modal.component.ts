@@ -132,33 +132,57 @@ export class ModalComponent implements OnInit {
   closedDialog() {
     this.dialogRef.closeAll()
   }
+
   executeDialog() {
+    var index = [12, 5, 8, 130, 44].indexOf(18);
+    console.log("index is 01 : " + index);
+
+
+
+    index = this.studentList.indexOf(18);
+    console.log("index is 02 : " + index);
+
     debugger;
 
-    function isBigEnough(element: number) {
-      return (element >= 4);
-    }
-    var passed = [12, 5, 8, 130, 44].every(isBigEnough);
-    console.log("Test Value 01 : " + passed);
+    let testSutudent = new students();
+    testSutudent.birthdate = '01.01.2007';
+    testSutudent.gender = 'Female';
+    testSutudent.number = 8;
+    testSutudent.surname = 'Koftiyan';
+    testSutudent.name = 'Eleni';
+    index = this.studentList.indexOf(testSutudent.name);
+    console.log("index is 03 : " + index);
 
-    //--//-->
-
-    passed = [12, 5, 8, 130, 44].every((value:number)=>
-    {
-      return (value >= 10);
-    });
-    console.log("Test Value 02 : " + passed);
-
-    //--//-->
-
-    passed = this.studentList.every((value:students)=>
-    {
-      //return (new Date(value.birthdate).getFullYear()>2000);
-      return (new Date(value.birthdate).getFullYear()>1955);
-    });
-    console.log("Test Value 03 : " + passed);
 
   }
+
+  // executeDialog() {
+  //   debugger;
+
+  //   function isBigEnough(element: number) {
+  //     return (element >= 4);
+  //   }
+  //   var passed = [12, 5, 8, 130, 44].every(isBigEnough);
+  //   console.log("Test Value 01 : " + passed);
+
+  //   //--//-->
+
+  //   passed = [12, 5, 8, 130, 44].every((value:number)=>
+  //   {
+  //     return (value >= 10);
+  //   });
+  //   console.log("Test Value 02 : " + passed);
+
+  //   //--//-->
+
+  //   passed = this.studentList.every((value:students)=>
+  //   {
+  //     return (new Date(value.birthdate).getFullYear()>2000);
+  //     // return (new Date(value.birthdate).getFullYear()>1955);
+  //   });
+  //   console.log("Test Value 03 : " + passed);
+
+  // }
 
   // executeDialog()
   // {
