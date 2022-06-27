@@ -139,9 +139,28 @@ export class ModalComponent implements OnInit {
     debugger;
 
     //var arr = new Array("First", "Second", "Third");
-    var arrNumber = new Array(1, 2, 3, 4);
-    var str = arrNumber.join();
-    console.log("str : " + str);
+    // var arrNumber = new Array(1, 2, 3, 4);
+    // var str = arrNumber.join();
+    // console.log("str : " + str);
+
+
+    const namesArray = this.studentList.map((s:students) => {
+      return s.number;
+    });
+
+    console.log(namesArray.join(", "));
+
+    // let valueList="";
+
+    // this.studentList.forEach(function (value:students) {
+    //   debugger;
+    //     var str=value.name;
+    //     valueList=str.join(' + ');
+    //     console.log(valueList);
+    // });
+    // console.log(valueList);
+
+
     // var str = arr.join();
     // console.log("str : " + str);
 
