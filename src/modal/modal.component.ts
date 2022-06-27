@@ -133,28 +133,52 @@ export class ModalComponent implements OnInit {
     this.dialogRef.closeAll()
   }
 
+
   executeDialog() {
-    var index = [12, 5, 8, 130, 44].indexOf(18);
-    console.log("index is 01 : " + index);
-
-
-
-    index = this.studentList.indexOf(18);
-    console.log("index is 02 : " + index);
 
     debugger;
 
-    let testSutudent = new students();
-    testSutudent.birthdate = '01.01.2007';
-    testSutudent.gender = 'Female';
-    testSutudent.number = 8;
-    testSutudent.surname = 'Koftiyan';
-    testSutudent.name = 'Eleni';
-    index = this.studentList.indexOf(testSutudent.name);
-    console.log("index is 03 : " + index);
+    //var arr = new Array("First", "Second", "Third");
+    var arrNumber = new Array(1, 2, 3, 4);
+    var str = arrNumber.join();
+    console.log("str : " + str);
+    // var str = arr.join();
+    // console.log("str : " + str);
+
+    // var str = arr.join(", ");
+    // console.log("str : " + str);
+
+    // var str = arr.join(" + ");
+    // console.log("str : " + str);
+
+    // var testJoinFor = this.studentList.join();
+    // console.log("Sonuc : " + testJoinFor);
 
 
   }
+  // executeDialog() {
+  //   var index = [12, 5, 8, 130, 44].indexOf(18);
+  //   console.log("index is 01 : " + index);
+
+
+
+  //   index = this.studentList.indexOf(18);
+  //   console.log("index is 02 : " + index);
+
+  //   debugger;
+
+  //   let testSutudent = new students();
+  //   testSutudent.birthdate = '01.01.2007';
+  //   testSutudent.gender = 'Female';
+  //   testSutudent.number = 8;
+  //   testSutudent.surname = 'Koftiyan';
+  //   testSutudent.name = 'Eleni';
+  //   index = this.studentList.indexOf((jaf:students)=> jaf.name===testSutudent.name);
+  //   index = this.studentList.findIndex((x : students) => x === testSutudent);
+  //   console.log("index is 03 : " + index);
+
+
+  // }
 
   // executeDialog() {
   //   debugger;
