@@ -49,7 +49,7 @@ export class ModalComponent implements OnInit {
 
   ];
 
-  studentList: students[] | any = [
+  studentList: students[] = [
     {
       name: 'Furkan',
       surname: 'Zingal',
@@ -136,50 +136,73 @@ export class ModalComponent implements OnInit {
   executeDialog() {
     debugger;
 
-
-
-    let testSutudent = new students;
-    testSutudent.birthdate = '20.02.1977';
-    testSutudent.gender = 'Female';
-    testSutudent.number = 11;
-    testSutudent.surname = 'Alanzo';
-    testSutudent.name = 'Fernandina';
-
-    this.studentList.push(testSutudent);
-
-
-    // var numbers = new Array(1, 4, 9);
-    // numbers.push(18);
-    // var length = numbers.push(10);
-    // console.log("new numbers is : " + numbers );
-    // length = numbers.push(20);
-    // console.log("new numbers is : " + numbers );
-
-    // var numbers = [1, 4, 9];
-
-    // var element = numbers.pop();
-    // console.log("element is : " + element);
-
-    // var element = numbers.pop();
-    // console.log("element is : " + element);
-
-    // var testLastElement=this.studentList.pop();
-    // console.log(testLastElement);
-
-
-    // var numbers = [16, 125, 375];
-    // var roots = numbers.map(Math.sqrt);
-    // console.log("roots is : " + roots);
-
-    // var testNamePlusSurname=this.studentList.map((jaf:students)=>
-    // {
-    //   debugger;
-    //   jaf.name=jaf.name+' '+jaf.surname+' '+(jaf.name+' '+jaf.surname).length ;
-    //   console.log(jaf.name);
-    // });
-
-
   }
+
+
+  // executeDialog() {
+  //   debugger;
+
+  //   //--> ayni tipte nesne oluyor
+  //   // const testSutudent:any={
+  //   //   name: 'Fernandina',
+  //   //   surname: 'Alanzo',
+  //   //   number: 10,
+  //   //   gender: 'Female',
+  //   //   birthdate: '20.02.1977'
+  //   // };
+
+  //   //--> ayni tipte nesne Olmuyor
+  //   // let testSutudent = new students();
+  //   // testSutudent.birthdate = '01.01.2007';
+  //   // testSutudent.gender = 'Female';
+  //   // testSutudent.number = 8;
+  //   // testSutudent.surname = 'Koftiyan';
+  //   // testSutudent.name = 'Eleni';
+
+
+  //   //--> tamda istedigimizi veriyor, tesekkurler TEVFIK
+  //   let testSutudent :students ={
+  //     name: 'Fernandina',
+  //     surname : 'Alanzo',
+  //     gender : 'Female',
+  //     birthdate : '20.02.1977',
+  //     number:11
+  //   }
+  //   this.studentList.push(testSutudent);
+
+
+  //   // var numbers = new Array(1, 4, 9);
+  //   // numbers.push(18);
+  //   // var length = numbers.push(10);
+  //   // console.log("new numbers is : " + numbers );
+  //   // length = numbers.push(20);
+  //   // console.log("new numbers is : " + numbers );
+
+  //   // var numbers = [1, 4, 9];
+
+  //   // var element = numbers.pop();
+  //   // console.log("element is : " + element);
+
+  //   // var element = numbers.pop();
+  //   // console.log("element is : " + element);
+
+  //   // var testLastElement=this.studentList.pop();
+  //   // console.log(testLastElement);
+
+
+  //   // var numbers = [16, 125, 375];
+  //   // var roots = numbers.map(Math.sqrt);
+  //   // console.log("roots is : " + roots);
+
+  //   // var testNamePlusSurname=this.studentList.map((jaf:students)=>
+  //   // {
+  //   //   debugger;
+  //   //   jaf.name=jaf.name+' '+jaf.surname+' '+(jaf.name+' '+jaf.surname).length ;
+  //   //   console.log(jaf.name);
+  //   // });
+
+
+  // }
 
   // executeDialog() {
 
