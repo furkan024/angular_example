@@ -133,48 +133,55 @@ export class ModalComponent implements OnInit {
     this.dialogRef.closeAll()
   }
 
-
   executeDialog() {
-
     debugger;
-
-    //var arr = new Array("First", "Second", "Third");
-    // var arrNumber = new Array(1, 2, 3, 4);
-    // var str = arrNumber.join();
-    // console.log("str : " + str);
-
-
-    const namesArray = this.studentList.map((s:students) => {
-      return s.number;
-    });
-
-    console.log(namesArray.join(", "));
-
-    // let valueList="";
-
-    // this.studentList.forEach(function (value:students) {
-    //   debugger;
-    //     var str=value.name;
-    //     valueList=str.join(' + ');
-    //     console.log(valueList);
-    // });
-    // console.log(valueList);
-
-
-    // var str = arr.join();
-    // console.log("str : " + str);
-
-    // var str = arr.join(", ");
-    // console.log("str : " + str);
-
-    // var str = arr.join(" + ");
-    // console.log("str : " + str);
-
-    // var testJoinFor = this.studentList.join();
-    // console.log("Sonuc : " + testJoinFor);
-
+    var numbers = [16, 125, 375];
+    var roots = numbers.map(Math.sqrt);
+    console.log("roots is : " + roots);
 
   }
+
+  // executeDialog() {
+
+  //   debugger;
+
+  //   //var arr = new Array("First", "Second", "Third");
+  //   // var arrNumber = new Array(1, 2, 3, 4);
+  //   // var str = arrNumber.join();
+  //   // console.log("str : " + str);
+
+
+  //   const namesArray = this.studentList.map((s:students) => {
+  //     return s.number;
+  //   });
+
+  //   console.log(namesArray.join(", "));
+
+  //   // let valueList="";
+
+  //   // this.studentList.forEach(function (value:students) {
+  //   //   debugger;
+  //   //     var str=value.name;
+  //   //     valueList=str.join(' + ');
+  //   //     console.log(valueList);
+  //   // });
+  //   // console.log(valueList);
+
+
+  //   // var str = arr.join();
+  //   // console.log("str : " + str);
+
+  //   // var str = arr.join(", ");
+  //   // console.log("str : " + str);
+
+  //   // var str = arr.join(" + ");
+  //   // console.log("str : " + str);
+
+  //   // var testJoinFor = this.studentList.join();
+  //   // console.log("Sonuc : " + testJoinFor);
+
+
+  // }
   // executeDialog() {
   //   var index = [12, 5, 8, 130, 44].indexOf(18);
   //   console.log("index is 01 : " + index);
