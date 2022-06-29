@@ -135,6 +135,24 @@ export class ModalComponent implements OnInit {
 
   executeDialog() {
     debugger;
+
+    // test istnildigi gibi calismayan
+    // this.studentList.forEach((jaf:students)=>
+    // {
+    //     console.log(jaf.name);
+    //     this.studentList.shift();
+    // });
+    // debugger;
+
+    // var testShiftIlkEleman = this.studentList.shift();
+    // console.log("Shifted value is : " + testShiftIlkEleman );
+    // var arr = [10, 7, 9, 11].shift();
+    // console.log("Shifted value is : " + arr );
+
+    // var arr = this.studentList.reverse();
+    // console.log("Reversed array is : " + arr );
+    // var arr = [0, 1, 2, 3].reverse();
+    // console.log("Reversed array is : " + arr );
   }
   // executeDialog() {
   //   debugger;
