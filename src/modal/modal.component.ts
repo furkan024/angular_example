@@ -135,8 +135,34 @@ export class ModalComponent implements OnInit {
 
   executeDialog() {
     debugger;
-
   }
+  // executeDialog() {
+  //   debugger;
+  //   // tesekkurler Furkan
+  //   let sumList = this.studentList.reduce((acc, item) => acc + item.number, 0);
+  //   console.log(sumList);
+
+  //   // Sagol Ahmet
+  //   // const allNumbers = this.studentList.map(item => {
+  //   //   return item.number;
+  //   // });
+  //   // const totalNotes = allNumbers.reduce((a: number, b: number) => {
+  //   //   return a + b;
+  //   // });
+  //   // console.log(totalNotes);
+
+
+  //   // var total = [3, -1, 2, -5].reduce(function(a, b)
+  //   // {
+  //   //   debugger;
+  //   //   console.log(a);
+  //   //   console.log(b);
+  //   //   return a - b;
+  //   // });
+
+  //   // console.log("total is : " + total );
+
+  // }
 
 
   // executeDialog() {
