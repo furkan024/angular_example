@@ -136,6 +136,66 @@ export class ModalComponent implements OnInit {
   executeDialog() {
     debugger;
 
+    // Deniz Can -> alternatif cozum
+    // do
+    // {
+    //   console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
+    // }
+    // while(this.studentList.length>0)
+    // console.log("Kalan öğrenci sayısı :" + this.studentList.length);
+
+    // Samet
+    // while (this.studentList.length > 0) {
+    //   this.studentList.shift();
+    // }
+    // console.log(this.studentList);
+
+    // Murat
+    // var myList = [123,2314,56346,"asdasd"];
+    // console.log(myList);
+    // while (myList.length > 0){
+    //     console.log("myList array element sayisi:", myList.length);
+    //     myList.shift();
+    // }
+    // console.log("\n while dan ciktik, sonuc: ", myList.length, "eleman kaldi!");
+
+    // Dorukan
+    // while (this.studentList.length) {
+    //   this.studentList.shift();
+    // }
+
+    // Tevfik
+    // let sayi = this.studentList.length
+    // for (let i = 0; i < sayi; i++) {
+    //   this.studentList.shift();
+    //   console.log(this.studentList.length)
+    // }
+
+    // Tuana
+    // const length = this.studentList.length;
+    // for(let i = 0 ; i < length ; i++ ){
+    //   this.studentList.shift();
+    // }
+    // console.log("length before the shift: " + length);
+    // console.log("length after the shift: " + this.studentList.length);
+
+
+    // Deniz Can
+    // while(this.studentList.length)
+    //   {
+    //     console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
+    //   }
+    //   console.log("Kalan öğrenci sayısı :" + this.studentList.length);
+
+    // // // isfendiyar
+    let tempLenght=this.studentList.length;
+    for (let index = 0; index < tempLenght; ) {
+      this.studentList.shift();
+      //index-=1;
+      tempLenght-=1;
+    }
+    debugger;
+
     // test istnildigi gibi calismayan
     // this.studentList.forEach((jaf:students)=>
     // {
