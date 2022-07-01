@@ -135,54 +135,54 @@ export class ModalComponent implements OnInit {
   }
 
   executeDialog() {
-    
 
 
 
-    for(let i= 0;i<10;i++)
-    {
-      if(i == 4)
-      {
-        continue;
-      }
-      if(i == 8)
-      {
-        console.log(i + " The end.");
-        break;
-      }
-      console.log(i);
-    }
-    debugger;
-      let index = 0;
-      while(this.studentList[index].name)
-      {
-        let name = this.studentList[index].name;
-          if(name =="Eva")
-          {
-            let editstudents :students ={
-              name: this.studentList[index].name,
-              surname:this.studentList[index].surname,
-              birthdate:this.studentList[index].birthdate,
-              gender:this.studentList[index].gender,
-              number:this.studentList[index].number,
 
-            }
-            this.studentList.push(editstudents);
-            this.studentList.shift();
-            continue;
-          }
-           if(name =="Eleni")
-          {
-            break;
-          }
-         console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
-        
-     }
-     
-       console.log("Kalan öğrenci sayısı :" + this.studentList.length);
-    
-  
-    
+    // for(let i= 0;i<10;i++)
+    // {
+    //   if(i == 4)
+    //   {
+    //     continue;
+    //   }
+    //   if(i == 8)
+    //   {
+    //     console.log(i + " The end.");
+    //     break;
+    //   }
+    //   console.log(i);
+    // }
+    // debugger;
+    //   let index = 0;
+    //   while(this.studentList[index].name)
+    //   {
+    //     let name = this.studentList[index].name;
+    //       if(name =="Eva")
+    //       {
+    //         let editstudents :students ={
+    //           name: this.studentList[index].name,
+    //           surname:this.studentList[index].surname,
+    //           birthdate:this.studentList[index].birthdate,
+    //           gender:this.studentList[index].gender,
+    //           number:this.studentList[index].number,
+
+    //         }
+    //         this.studentList.push(editstudents);
+    //         this.studentList.shift();
+    //         continue;
+    //       }
+    //        if(name =="Eleni")
+    //       {
+    //         break;
+    //       }
+    //      console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
+
+    //  }
+
+    //    console.log("Kalan öğrenci sayısı :" + this.studentList.length);
+
+
+
     // Deniz Can -> alternatif cozum
     // do
     // {
@@ -235,13 +235,13 @@ export class ModalComponent implements OnInit {
     //   console.log("Kalan öğrenci sayısı :" + this.studentList.length);
 
     // // // isfendiyar
-    let tempLenght=this.studentList.length;
-    for (let index = 0; index < tempLenght; ) {
-      this.studentList.shift();
-      //index-=1;
-      tempLenght-=1;
-    }
-    debugger;
+    // let tempLenght=this.studentList.length;
+    // for (let index = 0; index < tempLenght; ) {
+    //   this.studentList.shift();
+    //   //index-=1;
+    //   tempLenght-=1;
+    // }
+    // debugger;
 
     // test istnildigi gibi calismayan
     // this.studentList.forEach((jaf:students)=>
