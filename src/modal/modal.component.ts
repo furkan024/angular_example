@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { HammerGestureConfig } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppComponent } from 'src/app/app.component';
@@ -134,8 +135,55 @@ export class ModalComponent implements OnInit {
   }
 
   executeDialog() {
-    debugger;
+    
 
+
+
+
+    for(let i= 0;i<10;i++)
+    {
+      if(i == 4)
+      {
+        continue;
+      }
+      if(i == 8)
+      {
+        console.log(i + " The end.");
+        break;
+      }
+      console.log(i);
+    }
+    debugger;
+      let index = 0;
+      while(this.studentList[index].name)
+      {
+        let name = this.studentList[index].name;
+          if(name =="Eva")
+          {
+            let editstudents :students ={
+              name: this.studentList[index].name,
+              surname:this.studentList[index].surname,
+              birthdate:this.studentList[index].birthdate,
+              gender:this.studentList[index].gender,
+              number:this.studentList[index].number,
+
+            }
+            this.studentList.push(editstudents);
+            this.studentList.shift();
+            continue;
+          }
+           if(name =="Eleni")
+          {
+            break;
+          }
+         console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
+        
+     }
+     
+       console.log("Kalan öğrenci sayısı :" + this.studentList.length);
+    
+  
+    
     // test istnildigi gibi calismayan
     // this.studentList.forEach((jaf:students)=>
     // {
