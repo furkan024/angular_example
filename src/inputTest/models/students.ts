@@ -5,6 +5,7 @@ export class students
     number: number | any;
     gender: string | any;
     birthdate: string | any;
+    //constructor () { }
     // constructor(
     //     name: string,
     //     surname: string,

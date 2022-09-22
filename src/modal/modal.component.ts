@@ -6,9 +6,10 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AppComponent } from 'src/app/app.component';
 import { students } from 'src/inputTest/models/students';
+import { studentsGrouped } from 'src/inputTest/models/studentsGrouped';
+import { List, Dictionary } from 'ts-generic-collections-linq'
 
-
-
+import * as _ from 'lodash';
 
 
 @Component({
@@ -20,6 +21,8 @@ export class ModalComponent implements OnInit {
   studentinfo: students | any;
   // studentForm : FormGroup;
   allstudents: students[] = [];
+  testallstudents: students[] = [];
+
   // privateStudents : students | any;
 
   constructor(
@@ -50,6 +53,8 @@ export class ModalComponent implements OnInit {
 
   ];
 
+  studentMainList = new List<students>();
+
   studentList: students[] = [
     {
       name: 'Furkan',
@@ -66,6 +71,13 @@ export class ModalComponent implements OnInit {
       birthdate: '01.01.1985'
     },
     {
+      name: 'John',
+      surname: 'Hopkins',
+      number: 2,
+      gender: 'Male',
+      birthdate: '01.01.1985'
+    },
+    {
       name: 'Marina',
       surname: 'Kisel',
       number: 3,
@@ -73,11 +85,39 @@ export class ModalComponent implements OnInit {
       birthdate: '01.01.1995'
     },
     {
+      name: 'John',
+      surname: 'Hopkins',
+      number: 2,
+      gender: 'Male',
+      birthdate: '01.01.1985'
+    },
+    {
       name: 'Jack',
       surname: 'Daniels',
       number: 4,
       gender: 'Male',
       birthdate: '01.01.1956'
+    },
+    {
+      name: 'Marina',
+      surname: 'Kisel',
+      number: 3,
+      gender: 'Female',
+      birthdate: '01.01.1995'
+    },
+    {
+      name: 'Marina',
+      surname: 'Kisel',
+      number: 3,
+      gender: 'Female',
+      birthdate: '01.01.1995'
+    },
+    {
+      name: 'Marina',
+      surname: 'Kisel',
+      number: 3,
+      gender: 'Female',
+      birthdate: '01.01.1995'
     },
     {
       name: 'Maria',
@@ -129,138 +169,234 @@ export class ModalComponent implements OnInit {
 
 
   ngOnInit() {
+    //this.createStudentListWithItem();
   }
   closedDialog() {
     this.dialogRef.closeAll()
   }
 
   executeDialog() {
+    //debugger;
+    //this.studentList
+    const result = this.createGroup();
+    console.table(result);
 
-
-
-
-    // for(let i= 0;i<10;i++)
-    // {
-    //   if(i == 4)
-    //   {
-    //     continue;
-    //   }
-    //   if(i == 8)
-    //   {
-    //     console.log(i + " The end.");
-    //     break;
-    //   }
-    //   console.log(i);
-    // }
-    // debugger;
-    //   let index = 0;
-    //   while(this.studentList[index].name)
-    //   {
-    //     let name = this.studentList[index].name;
-    //       if(name =="Eva")
-    //       {
-    //         let editstudents :students ={
-    //           name: this.studentList[index].name,
-    //           surname:this.studentList[index].surname,
-    //           birthdate:this.studentList[index].birthdate,
-    //           gender:this.studentList[index].gender,
-    //           number:this.studentList[index].number,
-
-    //         }
-    //         this.studentList.push(editstudents);
-    //         this.studentList.shift();
-    //         continue;
-    //       }
-    //        if(name =="Eleni")
-    //       {
-    //         break;
-    //       }
-    //      console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
-
-    //  }
-
-    //    console.log("Kalan öğrenci sayısı :" + this.studentList.length);
-
-
-
-    // Deniz Can -> alternatif cozum
-    // do
-    // {
-    //   console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
-    // }
-    // while(this.studentList.length>0)
-    // console.log("Kalan öğrenci sayısı :" + this.studentList.length);
-
-    // Samet
-    // while (this.studentList.length > 0) {
-    //   this.studentList.shift();
-    // }
-    // console.log(this.studentList);
-
-    // Murat
-    // var myList = [123,2314,56346,"asdasd"];
-    // console.log(myList);
-    // while (myList.length > 0){
-    //     console.log("myList array element sayisi:", myList.length);
-    //     myList.shift();
-    // }
-    // console.log("\n while dan ciktik, sonuc: ", myList.length, "eleman kaldi!");
-
-    // Dorukan
-    // while (this.studentList.length) {
-    //   this.studentList.shift();
-    // }
-
-    // Tevfik
-    // let sayi = this.studentList.length
-    // for (let i = 0; i < sayi; i++) {
-    //   this.studentList.shift();
-    //   console.log(this.studentList.length)
-    // }
-
-    // Tuana
-    // const length = this.studentList.length;
-    // for(let i = 0 ; i < length ; i++ ){
-    //   this.studentList.shift();
-    // }
-    // console.log("length before the shift: " + length);
-    // console.log("length after the shift: " + this.studentList.length);
-
-
-    // Deniz Can
-    // while(this.studentList.length)
-    //   {
-    //     console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
-    //   }
-    //   console.log("Kalan öğrenci sayısı :" + this.studentList.length);
-
-    // // // isfendiyar
-    // let tempLenght=this.studentList.length;
-    // for (let index = 0; index < tempLenght; ) {
-    //   this.studentList.shift();
-    //   //index-=1;
-    //   tempLenght-=1;
-    // }
-    // debugger;
-
-    // test istnildigi gibi calismayan
-    // this.studentList.forEach((jaf:students)=>
-    // {
-    //     console.log(jaf.name);
-    //     this.studentList.shift();
-    // });
-    // debugger;
-
-    // var testShiftIlkEleman = this.studentList.shift();
-    // console.log("Shifted value is : " + testShiftIlkEleman );
-    // var arr = [10, 7, 9, 11].shift();
-    // console.log("Shifted value is : " + arr );
-
-    // var arr = this.studentList.reverse();
-    // console.log("Reversed array is : " + arr );
-    // var arr = [0, 1, 2, 3].reverse();
-    // console.log("Reversed array is : " + arr );
   }
+  createGroup(): students[] {
+
+    const result = _.chain(this.studentList).groupBy(item => [item.name, item.surname, item.number, item.birthdate, item.gender])
+
+      .map((value, key) => ({
+
+        group: key,
+
+        data: {
+          name: value[0].name,
+          surname: value[0].surname,
+          number: value[0].number,
+          birthdate: value[0].birthdate,
+          gender: value[0].gender,
+        },
+
+        values: value
+
+      })).value();
+
+
+
+    const model = result.map(c => c.data);
+
+
+
+
+    console.log(model);
+
+    return model;
+
+  }
+
+  // createStudentListWithItem()
+  // {
+  //   for (let index = 0; index < this.studentList.length; index++) {
+  //     let newTempStudent=new students();
+  //     newTempStudent.name=this.studentList[index].name;
+  //     newTempStudent.surname=this.studentList[index].surname;
+  //     newTempStudent.birthdate=this.studentList[index].birthdate;
+  //     newTempStudent.gender=this.studentList[index].gender;
+  //     newTempStudent.number=this.studentList[index].number;
+  //     this.studentMainList.add(newTempStudent);
+  //   }
+  // }
+  // executeDialog() {
+  //   debugger;
+  //   //let testresult= new List<students>();
+  //   const testresult = new List<students>();
+  //   let pstudentsGrouped=this.studentMainList.groupBy(Jaf => [Jaf.name,Jaf.surname,Jaf.gender,Jaf.birthdate,Jaf.number])
+  //   .select(Jaf =>  new studentsGrouped(Jaf.groups[0], Jaf.list.select(Jaf => Jaf)));
+  //   // .select(Jaf => Jaf );
+  //   // new OwnersByPetSex(x.groups[0], x.list.select(x => x.owner))
+
+  //   debugger;
+
+  // }
+
+  // // executeDialog() {
+  // //   debugger;
+
+
+  // //   this.studentList.every(this.groupByx);
+  // //   debugger;
+
+  // // }
+
+  // // groupByx(value:students) {
+  // //   console.log(this.testallstudents.findIndex((element:students)=>element===value));
+  // //   if (this.testallstudents.findIndex((element:students)=>element===value)===-1) {
+  // //     this.testallstudents.push(value);
+  // //   }
+  // // }
+  // executeDialog() {
+  //   debugger;
+
+  //   this.studentList.every((value:students)=>
+  //   {
+  //     console.log(this.testallstudents.findIndex((element:students)=>element===value));
+  //     if (this.testallstudents.findIndex((element:students)=>element===value)===-1) {
+  //       this.testallstudents.push(value);
+  //     }
+  //   });
+  //   debugger;
+
+  // }
+
+
+
+  // executeDialog() {
+
+  //   debugger;
+  //   // for(let i= 0;i<10;i++)
+  //   // {
+  //   //   if(i == 4)
+  //   //   {
+  //   //     continue;
+  //   //   }
+  //   //   if(i == 8)
+  //   //   {
+  //   //     console.log(i + " The end.");
+  //   //     break;
+  //   //   }
+  //   //   console.log(i);
+  //   // }
+  //   //   let index = 0;
+  //   //   while(this.studentList[index].name)
+  //   //   {
+  //   //     let name = this.studentList[index].name;
+  //   //       if(name =="Eva")
+  //   //       {
+  //   //         let editstudents :students ={
+  //   //           name: this.studentList[index].name,
+  //   //           surname:this.studentList[index].surname,
+  //   //           birthdate:this.studentList[index].birthdate,
+  //   //           gender:this.studentList[index].gender,
+  //   //           number:this.studentList[index].number,
+
+  //   //         }
+  //   //         this.studentList.push(editstudents);
+  //   //         this.studentList.shift();
+  //   //         continue;
+  //   //       }
+  //   //        if(name =="Eleni")
+  //   //       {
+  //   //         break;
+  //   //       }
+  //   //      console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
+
+  //   //  }
+
+  //   //    console.log("Kalan öğrenci sayısı :" + this.studentList.length);
+
+
+
+  //   // Deniz Can -> alternatif cozum
+  //   // do
+  //   // {
+  //   //   console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
+  //   // }
+  //   // while(this.studentList.length>0)
+  //   // console.log("Kalan öğrenci sayısı :" + this.studentList.length);
+
+  //   // Samet
+  //   // while (this.studentList.length > 0) {
+  //   //   this.studentList.shift();
+  //   // }
+  //   // console.log(this.studentList);
+
+  //   // Murat
+  //   // var myList = [123,2314,56346,"asdasd"];
+  //   // console.log(myList);
+  //   // while (myList.length > 0){
+  //   //     console.log("myList array element sayisi:", myList.length);
+  //   //     myList.shift();
+  //   // }
+  //   // console.log("\n while dan ciktik, sonuc: ", myList.length, "eleman kaldi!");
+
+  //   // Dorukan
+  //   // while (this.studentList.length) {
+  //   //   this.studentList.shift();
+  //   // }
+
+  //   // Tevfik
+  //   // let sayi = this.studentList.length
+  //   // for (let i = 0; i < sayi; i++) {
+  //   //   this.studentList.shift();
+  //   //   console.log(this.studentList.length)
+  //   // }
+
+  //   // Tuana
+  //   // const length = this.studentList.length;
+  //   // for(let i = 0 ; i < length ; i++ ){
+  //   //   this.studentList.shift();
+  //   // }
+  //   // console.log("length before the shift: " + length);
+  //   // console.log("length after the shift: " + this.studentList.length);
+
+
+  //   // Deniz Can
+  //   // while(this.studentList.length)
+  //   //   {
+  //   //     console.log(this.studentList.shift()?.name +" adlı öğrenci silindi..!!");
+  //   //   }
+  //   //   console.log("Kalan öğrenci sayısı :" + this.studentList.length);
+
+  //   // // // isfendiyar
+  //   // let tempLenght=this.studentList.length;
+  //   // for (let index = 0; index < tempLenght; ) {
+  //   //   this.studentList.shift();
+  //   //   //index-=1;
+  //   //   tempLenght-=1;
+  //   // }
+  //   // debugger;
+
+  //   // test istnildigi gibi calismayan
+  //   // this.studentList.forEach((jaf:students)=>
+  //   // {
+  //   //     console.log(jaf.name);
+  //   //     this.studentList.shift();
+  //   // });
+  //   // debugger;
+
+  //   // var testShiftIlkEleman = this.studentList.shift();
+  //   // console.log("Shifted value is : " + testShiftIlkEleman );
+  //   // var arr = [10, 7, 9, 11].shift();
+  //   // console.log("Shifted value is : " + arr );
+
+  //   // var arr = this.studentList.reverse();
+  //   // console.log("Reversed array is : " + arr );
+  //   // var arr = [0, 1, 2, 3].reverse();
+  //   // console.log("Reversed array is : " + arr );
+  // }
+
+
   // executeDialog() {
   //   debugger;
   //   // tesekkurler Furkan
@@ -312,14 +448,14 @@ export class ModalComponent implements OnInit {
 
 
   //   //--> tamda istedigimizi veriyor, tesekkurler TEVFIK
-  //   let testSutudent :students ={
-  //     name: 'Fernandina',
-  //     surname : 'Alanzo',
-  //     gender : 'Female',
-  //     birthdate : '20.02.1977',
-  //     number:11
-  //   }
-  //   this.studentList.push(testSutudent);
+  //   // let testSutudent :students ={
+  //   //   name: 'Fernandina',
+  //   //   surname : 'Alanzo',
+  //   //   gender : 'Female',
+  //   //   birthdate : '20.02.1977',
+  //   //   number:11
+  //   // }
+  //   // this.studentList.push(testSutudent);
 
 
   //   // var numbers = new Array(1, 4, 9);
@@ -345,12 +481,12 @@ export class ModalComponent implements OnInit {
   //   // var roots = numbers.map(Math.sqrt);
   //   // console.log("roots is : " + roots);
 
-  //   // var testNamePlusSurname=this.studentList.map((jaf:students)=>
-  //   // {
-  //   //   debugger;
-  //   //   jaf.name=jaf.name+' '+jaf.surname+' '+(jaf.name+' '+jaf.surname).length ;
-  //   //   console.log(jaf.name);
-  //   // });
+  //   var testNamePlusSurname=this.studentList.map((jaf:students)=>
+  //   {
+  //     debugger;
+  //     jaf.name=jaf.name+' '+jaf.surname+' '+(jaf.name+' '+jaf.surname).length ;
+  //     console.log(jaf.name);
+  //   });
 
 
   // }
@@ -364,6 +500,9 @@ export class ModalComponent implements OnInit {
   //   // var str = arrNumber.join();
   //   // console.log("str : " + str);
 
+  //   const testResult = (this.studentList.map((s:students) => {
+  //     return s.number;
+  //   })).join();
 
   //   const namesArray = this.studentList.map((s:students) => {
   //     return s.number;
@@ -396,26 +535,29 @@ export class ModalComponent implements OnInit {
 
 
   // }
+
   // executeDialog() {
   //   var index = [12, 5, 8, 130, 44].indexOf(18);
   //   console.log("index is 01 : " + index);
 
 
 
-  //   index = this.studentList.indexOf(18);
-  //   console.log("index is 02 : " + index);
+  //   // index = this.studentList.indexOf(18);
+  //   // console.log("index is 02 : " + index);
 
   //   debugger;
 
-  //   let testSutudent = new students();
-  //   testSutudent.birthdate = '01.01.2007';
-  //   testSutudent.gender = 'Female';
-  //   testSutudent.number = 8;
-  //   testSutudent.surname = 'Koftiyan';
-  //   testSutudent.name = 'Eleni';
-  //   index = this.studentList.indexOf((jaf:students)=> jaf.name===testSutudent.name);
-  //   index = this.studentList.findIndex((x : students) => x === testSutudent);
-  //   console.log("index is 03 : " + index);
+  //   // let testSutudent = new students();
+  //   // testSutudent.birthdate = '01.01.2007';
+  //   // testSutudent.gender = 'Female';
+  //   // testSutudent.number = 8;
+  //   // testSutudent.surname = 'Koftiyan';
+  //   // testSutudent.name = 'Eleni';
+  //   // //index = this.studentList.indexOf((jaf:students)=> jaf.name===testSutudent.name);
+  //   // index = this.studentList.findIndex((x : students) => x === testSutudent);
+  //   // console.log("index is 03 : " + index);
+
+  //   console.log(this.studentList.length);
 
 
   // }
@@ -423,28 +565,28 @@ export class ModalComponent implements OnInit {
   // executeDialog() {
   //   debugger;
 
-  //   function isBigEnough(element: number) {
-  //     return (element >= 4);
-  //   }
-  //   var passed = [12, 5, 8, 130, 44].every(isBigEnough);
-  //   console.log("Test Value 01 : " + passed);
+  //   // function isBigEnough(element: number) {
+  //   //   return (element >= 4);
+  //   // }
+  //   // var passed = [12, 5, 8, 130, 44].every(isBigEnough);
+  //   // console.log("Test Value 01 : " + passed);
+
+  //   // //--//-->
+
+  //   // passed = [12, 5, 8, 130, 44].every((value:number)=>
+  //   // {
+  //   //   return (value >= 10);
+  //   // });
+  //   // console.log("Test Value 02 : " + passed);
 
   //   //--//-->
 
-  //   passed = [12, 5, 8, 130, 44].every((value:number)=>
-  //   {
-  //     return (value >= 10);
-  //   });
-  //   console.log("Test Value 02 : " + passed);
-
-  //   //--//-->
-
-  //   passed = this.studentList.every((value:students)=>
-  //   {
-  //     return (new Date(value.birthdate).getFullYear()>2000);
-  //     // return (new Date(value.birthdate).getFullYear()>1955);
-  //   });
-  //   console.log("Test Value 03 : " + passed);
+  //   // var passed = this.studentList.every((value:students)=>
+  //   // {
+  //   //   return (new Date(value.birthdate).getFullYear()>2000);
+  //   //   // return (new Date(value.birthdate).getFullYear()>1955);
+  //   // });
+  //   // console.log("Test Value 03 : " + passed);
 
   // }
 
@@ -464,17 +606,17 @@ export class ModalComponent implements OnInit {
   //   //   console.log(this.studentList[i].name+" "+this.studentList[i].surname);
   //   // }
 
-  //   this.studentList.forEach(function (value:students) {
-  //     //if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
-  //     // const [month, day, year] = value.birthdate.split('.');
-  //     // if(year > 2000){
-  //     //   console.log(value.name + " " + value.surname);
-  //     // }
-  //     if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
-  //     {
-  //       console.log(value.name+" "+value.surname);
-  //     }
-  //   });
+  //   // this.studentList.forEach(function (value:students) {
+  //   //   //if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
+  //   //   // const [month, day, year] = value.birthdate.split('.');
+  //   //   // if(year > 2000){
+  //   //   //   console.log(value.name + " " + value.surname);
+  //   //   // }
+  //   //   if(value.gender==="Female" &&   new Date(value.birthdate).getFullYear()>2000)
+  //   //   {
+  //   //     console.log(value.name+" "+value.surname);
+  //   //   }
+  //   // });
 
 
   //   // for (let i = 0; i < this.allstudents.length; i++){
@@ -482,10 +624,11 @@ export class ModalComponent implements OnInit {
   //   //     this.privateStudents.push(this.allstudents[i]);
   //   //   }
   //   // }
-  //   //this.privateStudents = this.studentList.filter((s: { gender: string; }) => s.gender === "Male");
+  //   // this.privateStudents = this.studentList.filter((s: { gender: string; }) => s.gender === "Male");
   //   // this.privateStudents = this.studentList.filter((s: { name: string; }) => s.name === "Furkan");
-  //   //var testConcat = this.privateStudents.concat(this.studentList);
-  //   //console.log(this.privateStudents);
+  //   // this.privateStudents = this.studentList.filter((s:students) => s.gender === "Female" && new Date(s.birthdate).getFullYear()>1980);
+  //   // var testConcat = this.privateStudents.concat(this.studentList);
+  //   console.log(this.privateStudents);
   // }
 
 
